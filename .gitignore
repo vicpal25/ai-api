@@ -1,0 +1,10 @@
+# .gitignore
+
+# Ignore environment variables file
+.env
+package-lock.json
+node_modules
+server/utils/output/*
+server/output/*
+
+
