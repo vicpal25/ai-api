@@ -15,7 +15,7 @@ const storage = new Storage({
     projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
 });
 
-const { GOOGLE_CLOUD_BUCKET_NAME  } = process.env || 'ai-content-creator';
+const GOOGLE_CLOUD_BUCKET_NAME = 'ai-content-creator';
 
 function slugyfy(text: string) {
     return text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
@@ -158,17 +158,17 @@ export async function generateVoice(promptText: string) {
 
 export async function generateVideoBasedOnPrompt(promptText: string) {
     const { OPENAI_API_DAVINCI_URL, OPENAI_API_KEY } = process.env;
-  
+
     if (!OPENAI_API_DAVINCI_URL) {
       console.error('OPENAI_API_DAVINCI_URL is not defined.');
       return;
     }
-  
+
     if (!OPENAI_API_KEY) {
       console.error('OPENAI_API_KEY is not defined.');
       return;
     }
-  
+
     try {
       const response = await axios.post(
         OPENAI_API_DAVINCI_URL,
@@ -188,7 +188,7 @@ export async function generateVideoBasedOnPrompt(promptText: string) {
       );
 
       console.log(response.data);
-      
+
 
       const videoUrl = response.data.choices[0].video;
       // Process and display the video as needed
