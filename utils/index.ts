@@ -66,7 +66,7 @@ export async function generateSuggestionsFromPrompt(promptText: string) {
     // Generate content using OpenAI's GPT-3
     const gpt3Response = await openai.createCompletion({
         model: 'text-davinci-002',
-        prompt: `Please generate some trending 2024 suggestions based on: ${promptText} and return them in JSON format.`,
+        prompt: `Please generate an article on: ${promptText} around 3 paragraphs`,
         max_tokens: 500,
     });
 

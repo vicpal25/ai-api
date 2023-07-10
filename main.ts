@@ -124,7 +124,7 @@ app.post('/generate-suggestions', async (req, res) => {
   if (!topic) return res.status(400).json({ message: 'Please provide a topic.' })
 
   try {
-    const formattedTopic = `Provide a topic of: ${topic} in JSON format.`
+    const formattedTopic = `Provide an article based on the following topic: ${topic}.`
     console.log('formattedTopic', formattedTopic)
     const gpt3Response = await generateSuggestionsFromPrompt(formattedTopic)
     console.log('gpt3Response', gpt3Response)
