@@ -32,17 +32,17 @@ app.get("/categories/", async (req, res) => {
               source: "youtube",
               topics: [
                 {
-                  metrics: 1400000,
+                  metrics: '1.4M',
                   id: "98a0384e-aed4-432a-bb1e-cf59f5811e23",
                   name: "The Corvette Z06 is the best sounding american car",
                 },
                 {
-                  metrics: 1136378,
+                  metrics: '1.1M',
                   id: "46691b36-85bc-4ec9-9c1b-410370f63c69",
                   name: "1,100HP Lucid Air v tuned BMW M3: Drag Race",
                 },
                 {
-                  metrics: 731234,
+                  metrics: '73K',
                   id: "9c2ac983-5409-42d8-8578-6b1c74449b94",
                   name: "FIRST DRIVE: Rolls-Royce Spectre - 576bhp, £330k Electric Masterpiece | Top Gear",
                 },
@@ -54,27 +54,27 @@ app.get("/categories/", async (req, res) => {
               source: "reddit",
               topics: [
                 {
-                  metrics: 2282,
+                  metrics: '2k',
                   id: "98a0384e-aed4-432a-bb1e-cf59f5811e23",
                   name: "Lexus LC500",
                 },
                 {
-                  metrics: 1609,
+                  metrics: '1k',
                   id: "46691b36-85bc-4ec9-9c1b-410370f63c69",
                   name: "2023 Audi R8 GT vs The Cheapest Audi R8 You Can Buy",
                 },
                 {
-                  metrics: 1490,
+                  metrics: '1k',
                   id: "9c2ac983-5409-42d8-8578-6b1c74449b94",
                   name: "2022 Subaru BRZ",
                 },
                 {
-                  metrics: 1397,
+                  metrics: '1k',
                   id: "9c2ac983-5409-42d8-8578-6b1c74449b92",
                   name: "2019 Ferrari 488 Pista",
                 },
                 {
-                  metrics: 1103,
+                  metrics: '1k',
                   id: "9c2ac983-5409-42d8-8578-6b1c74449b90",
                   name: "Lamborghini Miura Paradise",
                 },
@@ -114,8 +114,6 @@ app.post('/generate', async (req, res) => {
     // console.log('formattedTopic', formattedTopic)
     // const gpt3Response: any = await generateSuggestionsFromPrompt(formattedTopic)
     // // const encodedText: string = encodeURIComponent(gpt3Response);
-
-    ['The 2024 Lexus LC 500: Unveiling Elegance and Power', 'Unleashing the Beast: The Corvette Z06 - The Best Sounding American Car']
 
     const articles = [{
       title: 'The 2024 Lexus LC 500: Unveiling Elegance and Power',
@@ -176,6 +174,8 @@ app.post('/generate', async (req, res) => {
   ]
 
     const response = articles.find((article) => article.title === topic);
+
+    // const voice = await generateVoice(response.body)
 
     return res.status(200).json({ message: response })
   } catch (error) {
