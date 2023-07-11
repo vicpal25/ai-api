@@ -121,11 +121,10 @@ app.post('/generate', async (req, res) => {
       body: "The 2024 Lexus LC 500: Unveiling Elegance and Power. The 2024 Lexus LC 500 is a showstopper on the road with its sophisticated blend of aggressive sportiness and understated elegance. Its sculpted design creates a stunning silhouette that seems to be in motion even when it is stationary. The LC 500 features a low, wide stance with a long wheelbase and a sleek, aerodynamic profile. Its signature Lexus spindle grille, broad shoulders, and dramatic LED taillights add character to its sophisticated appeal. Inside, the 2024 Lexus LC 500 impresses with its meticulous attention to detail. The cabin exudes an atmosphere of luxury and refinement, with its top-quality materials such as hand-stitched leather, Alcantara, and brushed aluminum, giving passengers a rich sensory experience. The well-crafted ergonomic design provides a driver-centric cockpit, ensuring an intuitive and comfortable driving experience. At the heart of the LC 500 is a naturally aspirated 5.0-liter V8 engine, producing a powerful 471 horsepower and 398 pound-feet of torque. Paired with a swift and smooth 10-speed automatic transmission, the LC 500 accelerates from 0 to 60 mph in just 4.4 seconds, offering exhilarating performance that is not often associated with Lexus vehicles. The Active Sport Exhaust system contributes to the visceral experience, delivering a deep and aggressive engine sound that underscores the LC's sporting prowess. The 2024 Lexus LC 500 offers a surprisingly comfortable ride despite its performance credentials. The Adaptive Variable Suspension system with 650 levels of damping force ensures excellent ride comfort and handling stability, adapting to road conditions and driving style in real-time. The electric power steering offers precise control, while the high-performance Brembo brakes provide confident stopping power. For a more customized experience, the Drive Mode Select feature lets drivers choose from several driving modes to adjust the vehicle's performance characteristics. The 2024 Lexus LC 500 is packed with advanced technology features. The infotainment system includes a 10.3-inch high-resolution split-screen multimedia display, Apple CarPlay, Android Auto, and a premium Mark Levinson audio system. The touchpad interface can be tricky to get used to but provides a clean and clutter-free dashboard. On the safety front, the LC 500 comes with the Lexus Safety System+ as standard. This includes Pre-Collision System with Pedestrian Detection, Lane Departure Alert with Lane Keep Assist, All-Speed Dynamic Radar Cruise Control, and Intelligent High Beams. Additionally, the LC 500 also features Blind Spot Monitor with Rear Cross-Traffic Alert, ensuring high levels of safety for both driver and passengers. The 2024 Lexus LC 500 is more than just a luxury sports coupe. It is an embodiment of Lexus's commitment to providing exceptional driving experiences, combining refined luxury with captivating performance. The LC 500 not only redefines Lexus's sports coupe lineup but also challenges the norms of the luxury automobile segment. This car truly delivers an experience that will inspire the senses and quicken the pulse of anyone fortunate enough to take the wheel.",
       metDescription: 'Explore the luxurious 2024 Lexus LC 500, a captivating blend of sportiness and elegance. Discover its design, performance, handling, comfort, and advanced technology features.',
       keywords: ['2024 Lexus LC 500', 'luxury sports coupe', 'car review', 'Lexus', 'LC 500', 'vehicle design', 'car performance', 'handling and comfort', 'advanced technology', 'safety features'],
-      cars: [{
-        make: 'Lexus',
-        model: 'LC 500',
-        year: '2024'
-      }]
+      cars: [
+        {"widgetValue": 'Lexus;LC-500;2024'},
+        {"previewValue": 'Lexus,LC-500,2024'},
+      ]
     },{
       "title": "The Corvette Z06 is the best sounding american car",
        "slug": "unleashing-the-beast-the-corvette-z06-the-best-sounding-american-car",
@@ -140,12 +139,10 @@ app.post('/generate', async (req, res) => {
            "V8 engine",
            "iconic design"
        ],
-       "cars": [
-           {
-               "make": " Chevrolet",
-               "model": " Corvette"
-           }
-       ]
+       cars: [
+        {"widgetValue": 'Chevrolet;Corvette'},
+        {"previewValue": 'Chevrolet,Corvette'},
+      ]
     },
     {
       "title": "1,100HP Lucid Air v tuned BMW M3: Drag Race",
@@ -160,23 +157,22 @@ app.post('/generate', async (req, res) => {
            "electrifying power",
            "legendary performance"
        ],
-       "cars": [
-           {
-               "make": "Lucid",
-               "model": " Air"
-           },
-        {
-               "make": "BMW",
-               "model": " M3"
-           }
-       ]
+       cars: [
+        {"widgetValue": 'Lucid;Air'},
+        {"previewValue": 'Lucid,Air'},
+        {"widgetValue": 'BMW;M3'},
+        {"previewValue": 'BMW,M3'},
+      ],
     }
   ]
 
     const response = articles.find((article) => article.title === topic);
 
-    // const voice = await generateVoice(response.body)
-    // console.log(voice);
+    console.log('response', response);
+
+    const voice = await generateVoice(response.body)
+
+    console.log(voice);
 
     return res.status(200).json({ message: response })
   } catch (error) {
