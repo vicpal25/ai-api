@@ -123,7 +123,7 @@ app.post('/generate', async (req, res) => {
       keywords: ['2024 Lexus LC 500', 'luxury sports coupe', 'car review', 'Lexus', 'LC 500', 'vehicle design', 'car performance', 'handling and comfort', 'advanced technology', 'safety features'],
       cars: [
         {"widgetValue": 'Lexus;LC-500;2024'},
-        {"previewValue": 'Lexus,LC-500,2024'},
+        {"previewValue": 'Lexus LC-500,2024'},
       ]
     },{
       "title": "The Corvette Z06 is the best sounding american car",
@@ -141,7 +141,7 @@ app.post('/generate', async (req, res) => {
        ],
        cars: [
         {"widgetValue": 'Chevrolet;Corvette'},
-        {"previewValue": 'Chevrolet,Corvette'},
+        {"previewValue": 'Chevrolet Corvette'},
       ]
     },
     {
@@ -159,9 +159,9 @@ app.post('/generate', async (req, res) => {
        ],
        cars: [
         {"widgetValue": 'Lucid;Air'},
-        {"previewValue": 'Lucid,Air'},
+        {"previewValue": 'Lucid Air'},
         {"widgetValue": 'BMW;M3'},
-        {"previewValue": 'BMW,M3'},
+        {"previewValue": 'BMW M3'},
       ],
     }
   ]
